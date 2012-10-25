@@ -7,7 +7,7 @@ else {
 }
 
 function VKAuthentification() {
-	location.href = "http://oauth.vk.com/authorize?client_id=" + app.appId + "&display=page&scope=friends,wall,video,photos,groups,pages&redirect_uri=" + app.redirectUri + "&response_type=token";
+	location.href = "http://oauth.vk.com/authorize?client_id=" + app.appId + "&display=page&scope=offline&redirect_uri=" + app.redirectUri + "&response_type=token";
 }
 
 function allAJAXCompleted() {
