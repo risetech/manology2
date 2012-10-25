@@ -9,16 +9,18 @@ namespace manology
 		public static void RegisterBundles(BundleCollection bundles)
 		{
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-						"~/Scripts/jquery-{version}.js"));
+						"~/Scripts/jquery/jquery-{version}.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-						"~/Scripts/jquery-ui-{version}.js"));
+						"~/Scripts/jquery/jquery-ui-{version}.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-						"~/Scripts/jquery.unobtrusive*",
-						"~/Scripts/jquery.validate*"));
+						"~/Scripts/jquery/jquery.unobtrusive*",
+						"~/Scripts/jquery/jquery.validate*"));
 
-			bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+			bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/twitter-bootstrap/bootstrap.js"));
+
+			bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/styles/site.css"));
 
 			bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
 						"~/Content/themes/base/jquery.ui.core.css",
@@ -33,6 +35,12 @@ namespace manology
 						"~/Content/themes/base/jquery.ui.datepicker.css",
 						"~/Content/themes/base/jquery.ui.progressbar.css",
 						"~/Content/themes/base/jquery.ui.theme.css"));
+
+			bundles.Add(new StyleBundle("~/Content/bootstrap/css").Include(
+				"~/Content/styles/twitter-bootstrap/bootstrap.css"));
+
+			bundles.Add(new StyleBundle("~/Content/me/css").Include(
+				"~/Content/styles/me.css"));
 		}
 	}
 }
