@@ -6,25 +6,15 @@ using System.Web.Mvc;
 
 namespace manology.Controllers
 {
-    public class HomeController : Controller
+    public class VKAuthentificationController : Controller
     {
         //
-        // GET: /Home/
+        // GET: /VKAuthentification/
 
-        public ActionResult Index()
+        public ActionResult VKAuthentification()
         {
             return View();
         }
-
-		public ActionResult Me()
-		{
-			return View();
-		}
-
-		public ActionResult Compare()
-		{
-			return View();
-		}
 
     }
 }

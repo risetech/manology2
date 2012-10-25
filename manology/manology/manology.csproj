@@ -122,7 +122,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\homeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VKAuthentificationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -197,6 +198,7 @@
     <None Include="Scripts\jquery\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\controllers\compare_controller.js" />
     <Content Include="Scripts\controllers\me_controller.js" />
+    <Content Include="Scripts\controllers\vkauthentification_controller.js" />
     <Content Include="Scripts\jquery\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
@@ -232,9 +234,11 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\home\Index.cshtml" />
-    <Content Include="Views\home\Me.cshtml" />
-    <Content Include="Views\home\Compare.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Me.cshtml" />
+    <Content Include="Views\Home\Compare.cshtml" />
+    <Content Include="Views\VKAuthentification\VKAuthentification.cshtml" />
+    <Content Include="Views\Shared\_VkLoginButton.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -258,9 +262,9 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>44044</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:10885/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
