@@ -6,15 +6,15 @@ using System.Web.Mvc;
 
 namespace manology.Controllers
 {
-    public class homeController : Controller
-    {
-        //
-        // GET: /Home/
+	public class homeController : Controller
+	{
+		//
+		// GET: /Home/
 
-        public ActionResult index()
-        {
-            return View();
-        }
+		public ActionResult index()
+		{
+			return View();
+		}
 
 		public ActionResult me()
 		{
@@ -26,5 +26,5 @@ namespace manology.Controllers
 			return View();
 		}
 
-    }
+	}
 }
