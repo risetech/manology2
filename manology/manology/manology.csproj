@@ -122,13 +122,21 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\homeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\footer-background.png" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\header-background.png" />
+    <Content Include="Content\images\manology-logo.png" />
+    <Content Include="Content\styles\me.css" />
+    <Content Include="Content\styles\twitter-bootstrap\bootstrap.css" />
+    <Content Include="Content\styles\twitter-bootstrap\bootstrap.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -184,7 +192,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\styles\Site.css" />
     <None Include="Scripts\jquery\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\controllers\compare_controller.js" />
     <Content Include="Scripts\controllers\me_controller.js" />
@@ -206,6 +214,8 @@
     <Content Include="Scripts\repo\vkapi.js" />
     <Content Include="Scripts\requirejs\require.js" />
     <Content Include="Scripts\requirejs\require.min.js" />
+    <Content Include="Scripts\twitter-bootstrap\bootstrap.js" />
+    <Content Include="Scripts\twitter-bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\viewmodels\compare_viewmodel.js" />
     <Content Include="Scripts\viewmodels\me_viewmodel.js" />
     <Content Include="Scripts\views\compare.js" />
@@ -221,9 +231,9 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Me.cshtml" />
-    <Content Include="Views\Home\Compare.cshtml" />
+    <Content Include="Views\home\Index.cshtml" />
+    <Content Include="Views\home\Me.cshtml" />
+    <Content Include="Views\home\Compare.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

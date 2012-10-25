@@ -6,22 +6,22 @@ using System.Web.Mvc;
 
 namespace manology.Controllers
 {
-    public class HomeController : Controller
+    public class homeController : Controller
     {
         //
         // GET: /Home/
 
-        public ActionResult Index()
+        public ActionResult index()
         {
             return View();
         }
 
-		public ActionResult Me()
+		public ActionResult me()
 		{
 			return View();
 		}
 
-		public ActionResult Compare()
+		public ActionResult compare()
 		{
 			return View();
 		}
