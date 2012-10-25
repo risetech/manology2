@@ -1,4 +1,16 @@
-﻿function allAJAXCompleted() {
+﻿var app;
+if (location.hostname == 'localhost' || (location.hostname.indexOf('127.0.0.1') + 1)) {
+	app = { appId: 2995743, appSecret: '5pxH8x5L8rT977WflGn0', redirectUri: 'http://127.0.0.1:44044/VKAuthentification/VKAuthentification' }
+}
+else {
+	app = { appId: 3016703, appSecret: 'Zz8fFBdaRDyMBQ0NDElV', redirectUri: 'http://manology.info/User/Auth' }
+}
+
+function VKAuthentification() {
+	location.href = "http://oauth.vk.com/authorize?client_id=" + app.appId + "&display=page&scope=friends,wall,video,photos,groups,pages&redirect_uri=" + app.redirectUri + "&response_type=token";
+}
+
+function allAJAXCompleted() {
 	alert('all AJAX completed!');
 }
 
