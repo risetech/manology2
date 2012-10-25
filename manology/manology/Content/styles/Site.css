@@ -1,0 +1,55 @@
+﻿body {
+	padding-top: 60px;
+}
+/*bootstrap @media handle*/
+@media (max-width: 979px) {
+	body {
+		padding-top: 0; 
+	}
+}
+
+.navbar-header {
+	background-image: url('/Content/images/header-background.png');
+	-webkit-box-shadow: inset 0px -4px 10px -3px black;
+	-moz-box-shadow: inset 0px -4px 10px -3px black;
+	box-shadow: inset 0px -4px 10px -3px black;
+}
+
+.brand-custom {
+	font-family: "Berlin Sans FB";
+	font-size: 30px;
+	color: white;
+}
+
+	.brand-custom:hover {
+		text-decoration: none;
+		color: white;
+	}
+
+.navbar-link {
+	color: white;
+}
+
+	.navbar-link:hover {
+		color: white;
+	}
+
+.logo-image {
+	height: 40px;
+	min-width: 40px;
+	padding: 1px 10px 1px;
+}
+
+.bordered {
+	border: 1px solid #808080;
+	margin: 5px 0 5px;
+	padding: 5px;
+}
+
+.page-wrapper {
+	min-height: 100%;
+}
+
+.align-center {
+	text-align: center;
+}
