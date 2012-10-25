@@ -19,12 +19,9 @@
 	font-family: "Berlin Sans FB";
 	font-size: 30px;
 	color: white;
+	text-shadow: 2px 2px 2px black;
+	-webkit-text-shadow: 2px 2px 2px black;
 }
-
-	.brand-custom:hover {
-		text-decoration: none;
-		color: white;
-	}
 
 .navbar-link {
 	color: white;
