@@ -1,6 +1,22 @@
 ﻿@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Главная / Manology";
+	Layout = null;
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>@ViewBag.Title</title>
+	<link href="~/Content/home.css" rel="stylesheet" />
+</head>
+<body>
+	<header></header>
+	<div id="container" class="home">
+		<h1>Manology</h1>
+		<p class="lead">Узнавайте об интересных вам людях больше!</p>
+		@Html.Partial("_VkLoginButton")
+		<img src="@Url.Content("~/content/images/home/logo.png")" alt="manology" />
+	</div>
+	<footer></footer>
+</body>
+</html>
