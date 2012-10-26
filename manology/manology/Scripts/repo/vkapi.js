@@ -27,7 +27,7 @@ var _AJAXRequests = {
 
 	getVKWall: {
 		completed: false,
-		func: function (target, callback) {
+		func: function (target, callback) {b  
 			var wall = [];
 			$.ajax({
 				url: API_URL + 'wall.get?' + access_token + user_id + '&count=100&filter=owner',

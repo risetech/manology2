@@ -1,15 +1,35 @@
-﻿function getRecentlyViewed(viewerId) {
-	//some code
+﻿function saveViewModel(viewModel) {
+	var data = {};
+	data.accessToken = 
+	data.userId = 1;
+	data.viewModel = viewModel;
+	$.ajax({
+		url: '/MongoDB/SaveViewModel',
+		type: 'POST',
+		data: data,
+		error: function (data) {
+		},
+		success: function () {
+		}
+	})
 }
 
-function getUser(userId) {
-	//some code
-}
+function loadViewModel() {
+	var data = {};
+	data.userId = 1;
+	$.ajax({
+		url: '/MongoDB/LoadViewModel',
+		data: data,
+		success: function (data) {
+			try {
+				if (data) {
 
-function addRecentlyViewed(viewerId, userId) {
-	//some code
-}
-
-function saveDataByFieldName(fieldName, data, viewerId) {
-	//some code
+				}
+				else {
+				}
+			}
+			catch (e) {
+			}
+		}
+	})
 }
