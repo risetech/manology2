@@ -22,43 +22,59 @@ namespace manology.Code
 			_db = _server.GetDatabase("Manology");
 		}
 
-		public void SaveViewModel(int userId, string accessToken, string meViewModel)
+		public void SaveViewModelMetadata(int userId, string accessToken, string meViewModel)
 		{
-			MongoCollection<ViewModel> viewModelCollection = _db.GetCollection<ViewModel>("ViewModels");
+			MongoCollection<ManologyUser> manologyUserCollection = _db.GetCollection<ManologyUser>("ManologyUsers");
 			IMongoQuery query = Query.EQ("UserId", userId);
-			ViewModel newViewModel = new ViewModel
+			ManologyUser manologyUser = new ManologyUser
 			{
 				UserId = userId,
 				AccessToken = accessToken,
 				MeViewModel = meViewModel,
 				UpdateDate = DateTime.Now.ToString(new System.Globalization.CultureInfo("ru-RU"))
 			};
-			IMongoUpdate update = Update.Replace<ViewModel>(newViewModel);
-			viewModelCollection.Update(query, update, UpdateFlags.Upsert);
+			IMongoUpdate update = Update.Replace<ManologyUser>(manologyUser);
+			manologyUserCollection.Update(query, update, UpdateFlags.Upsert);
 		}
 
-		public ViewModel LoadViewModel(int userId)
+		public ManologyUser LoadViewModelMetadata(int userId)
 		{
-			MongoCollection<ViewModel> viewModelCollection = _db.GetCollection<ViewModel>("ViewModels");
+			MongoCollection<ManologyUser> manologyUserCollection = _db.GetCollection<ManologyUser>("ManologyUsers");
 			IMongoQuery query = Query.EQ("UserId", userId);
-			return viewModelCollection.FindOne(query);
+			return manologyUserCollection.FindOne(query);
+		}
+
+		public void AddToRecentlyViewed(int userId, string viewedUser)
+		{
+			MongoCollection<ManologyUser> manologyUserCollection = _db.GetCollection<ManologyUser>("ManologyUsers");
+			IMongoQuery query = Query.EQ("UserId", userId);
+			IMongoUpdate updateAdd = Update.AddToSet("RecentlyViewed", viewedUser);
+			ManologyUser manologyUser = manologyUserCollection.FindOne(query);
+			if (manologyUser.RecentlyViewed.Count >= 3)
+			{
+				IMongoUpdate updatePull = Update.Pull("RecentlyWatched", manologyUser.RecentlyViewed[0]);
+				manologyUserCollection.Update(query, updatePull);
+			}
+			manologyUserCollection.Update(query, updateAdd, UpdateFlags.Upsert);
+		}
+
+		public List<string> LoadRecentlyViewed(int userId)
+		{
+			MongoCollection<ManologyUser> manologyUserCollection = _db.GetCollection<ManologyUser>("ViewModels");
+			IMongoQuery query = Query.EQ("UserId", userId);
+			ManologyUser manologyUser = manologyUserCollection.FindOne(query);
+			return manologyUser.RecentlyViewed;
 		}
 	}
-	public class ViewModel
+
+	public class ManologyUser
 	{
 		[BsonId]
 		public ObjectId id { get; set; }
 		public int UserId { get; set; }
 		public string AccessToken { get; set; }
 		public string MeViewModel { get; set; }
+		public List<string> RecentlyViewed { get; set; }
 		public string UpdateDate { get; set; }
-	}
-
-	public class Model
-	{
-		[BsonId]
-		public ObjectId id { get; set; }
-		public int UserId { get; set; }
-		public string AccessToken { get; set; }
 	}
 }

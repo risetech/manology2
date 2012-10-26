@@ -16,14 +16,27 @@ namespace manology.Controllers
 		public void SaveViewModel(int userId, string accessToken, string viewModel)
 		{
 			MongoWork mongoDB = new MongoWork();
-			mongoDB.SaveViewModel(userId, accessToken, viewModel);
+			mongoDB.SaveViewModelMetadata(userId, accessToken, viewModel);
 		}
        
 		public ActionResult LoadViewModel(int userId)
 		{
 			MongoWork mongoDB = new MongoWork();
-			ViewModel vm = mongoDB.LoadViewModel(userId);
+			string vm = mongoDB.LoadViewModelMetadata(userId).MeViewModel;
 			return Json(vm);
+		}
+
+		public void AddToRecenltyViewed(int userId, string viewedUser)
+		{
+			MongoWork mongoDB = new MongoWork();
+			mongoDB.AddToRecentlyViewed(userId, viewedUser);
+		}
+
+		public ActionResult LoadRecentlyViewed(int userId)
+		{
+			MongoWork mongoDB = new MongoWork();
+			List<string> rv = mongoDB.LoadRecentlyViewed(userId);
+			return Json(rv);
 		}
 
     }
