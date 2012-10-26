@@ -1,13 +1,16 @@
-@{
+﻿@{
 	ViewBag.Title = "Главная / Manology";
 	Layout = null;
 }
 
 <!DOCTYPE html>
+
 <html>
 <head>
+	<meta name="viewport" content="width=device-width" />
 	<title>@ViewBag.Title</title>
-	<link href="~/Content/home.css" rel="stylesheet" />
+	<link href="~/Content/styles/home.css" rel="stylesheet" />
+	<link href="~/Content/styles/home.css" rel="stylesheet" />
 </head>
 <body>
 	<header></header>
@@ -16,6 +19,7 @@
 		<p class="lead"></p>
 		@Html.Partial("_VkLoginButton")
 		<img src="@Url.Content("~/content/images/home/logo.png")" alt="manology" />
+		<i></i>
 	</div>
 	<footer></footer>
 	<script src="~/Scripts/repo/vkapi.js" type="text/javascript"></script>
