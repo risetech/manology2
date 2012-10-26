@@ -22,7 +22,7 @@
 						<span class="brand brand-custom">Manology</span>
 					</a>
 					<div class="nav-collapse collapse">
-						<p class="navbar-text pull-right"><a href='#' class="navbar-link">Выйти</a></p>
+						<p class="navbar-text pull-right"><a id="signOff" href="#" class="navbar-link">Выйти</a></p>
 					</div>
 				</div>
 			</div>
@@ -33,7 +33,16 @@
 
 		@Scripts.Render("~/bundles/jquery")
 		@Scripts.Render("~/bundles/bootstrap")
+		@Scripts.Render("~/bundles/manologyjs")
 		@RenderSection("scripts", required: false)
+		<script>
+			$(function(){
+				$('#signOff')
+					.on('click', function () {
+						new AuthController('/').signOff();
+					});
+			})
+		</script>
 	</div>
 </body>
 </html>

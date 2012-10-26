@@ -1,27 +1,48 @@
-﻿var hash = location.hash.slice(1).split('&');
-var accesssToken = hash[0];
-console.log(accesssToken);
+﻿var AuthController = function (redirectUri) {
+	var self = this;
 
-var viewerId = hash[hash.length - 1];
-console.log(viewerId);
+	var _hashParams = location.hash.slice(1).split('&');
+	var _accesssToken = _hashParams[0].split('=')[1];
+	console.log(_accesssToken);
 
-var _tokenStorageId = "manology.vkAccessToken";
-var _viewerStorageId = "manology.viewerId";
+	var _viewerId = _hashParams[_hashParams.length - 1].split('=')[1];
+	console.log(_viewerId);
 
-(function () {
-	if (localStorage) {
-		localStorage.setItem(_tokenStorageId, accesssToken);
-		localStorage.setItem(_viewerStorageId, viewerId);
+	var _tokenStorageId = "manology.vkAccessToken";
+	var _viewerStorageId = "manology.viewerId";
+
+	var _localStorageAvailable = typeof localStorage != undefined && localStorage != undefined;
+
+	this.setUser = function () {
+		if (_localStorageAvailable) {
+			localStorage.setItem(_tokenStorageId, _accesssToken);
+			localStorage.setItem(_viewerStorageId, _viewerId);
+		}
+
+		location.replace(redirectUri);
 	}
-})();
 
-function getUser() {
-	if (localStorage) {
-		return {
-			token: localStorage.getItem(_tokenStorageId),
-			id: localStorage.getItem(_viewerStorageId)
-		};
+	this.getUser = function () {
+		if (_localStorageAvailable) {
+			return {
+				token: localStorage.getItem(_tokenStorageId),
+				id: localStorage.getItem(_viewerStorageId)
+			};
+		}
+	}
+
+	this.signOff = function () {
+		if (this.isAuthenticated()) {
+			localStorage.removeItem(_tokenStorageId);
+			localStorage.removeItem(_viewerStorageId);
+			// TODO! Refactor this shit!
+			localStorage.removeItem("ownerId");
+		}
+
+		location.replace(redirectUri);
+	}
+
+	this.isAuthenticated = function () {
+		return self.getUser() && self.getUser().id && self.getUser().id > 0;
 	}
 }
-
-location.replace('/home/me');

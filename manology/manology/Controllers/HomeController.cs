@@ -25,6 +25,5 @@ namespace manology.Controllers
 		{
 			return View();
 		}
-
 	}
 }
