@@ -17,6 +17,9 @@ namespace manology
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
 						"~/Scripts/jquery/jquery.unobtrusive*",
 						"~/Scripts/jquery/jquery.validate*"));
+			
+			bundles.Add(new ScriptBundle("~/bundles/manologyjs").Include(
+						"~/Scripts/controllers/*.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/twitter-bootstrap/bootstrap.js"));
 
